@@ -1,6 +1,7 @@
 development:
   adapter: async
-
+  origins:
+    - https://remote-test-3c506.web.app
 test:
   adapter: test
 
@@ -8,3 +9,5 @@ production:
   adapter: redis
   url: <%= ENV.fetch("REDIS_URL") { "redis://localhost:6379/1" } %>
   channel_prefix: chat_production
+  origins:
+    - https://remote-test-3c506.web.app
