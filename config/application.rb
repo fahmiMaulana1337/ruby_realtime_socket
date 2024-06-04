@@ -14,7 +14,8 @@ module Chat
         origins 'https://remote-test-3c506.web.app'
         resource '*',
           headers: :any,
-          methods: [:get, :post, :put, :patch, :delete, :options, :head]
+          methods: [:get, :post, :put, :patch, :delete, :options, :head],
+          credentials: true # Allow credentials (cookies, HTTP authentication) to be sent
       end
     end 
     config.load_defaults 7.1
