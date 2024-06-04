@@ -9,13 +9,10 @@ Bundler.require(*Rails.groups)
 module Chat
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.middleware.insert_before 0, Rack::Cors do
+    config.middleware.insert_before ActionDispatch::Static, Rack::Cors do
       allow do
-        origins 'https://remote-test-3c506.web.app'
-        resource '*',
-          headers: :any,
-          methods: [:get, :post, :put, :patch, :delete, :options, :head],
-          credentials: true # Allow credentials (cookies, HTTP authentication) to be sent
+        origins '*'
+        resource '*', :headers => :any, :methods => [:get, :post, :options]
       end
     end 
     config.load_defaults 7.1
