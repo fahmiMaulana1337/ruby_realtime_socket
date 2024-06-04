@@ -9,6 +9,13 @@ Bundler.require(*Rails.groups)
 module Chat
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
+    config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins 'https://remote-test-3c506.web.app'
+        resource '*',
+          headers: :any,
+          methods: [:get, :post, :put, :patch, :delete, :options, :head]
+    end
     config.load_defaults 7.1
 
     # Please, add to the `ignore` list any other `lib` subdirectories that do
