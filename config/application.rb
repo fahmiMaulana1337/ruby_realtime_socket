@@ -15,7 +15,8 @@ module Chat
         resource '*',
           headers: :any,
           methods: [:get, :post, :put, :patch, :delete, :options, :head]
-    end
+      end
+    end 
     config.load_defaults 7.1
 
     # Please, add to the `ignore` list any other `lib` subdirectories that do
